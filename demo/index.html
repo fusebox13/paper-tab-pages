@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>paper-tab-pages demo</title>
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="../paper-tab-pages.html">
+    <link rel="import" href="../../paper-tabs/paper-tabs.html">
+    <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+    </style>
+  </head>
+  <body>
+    <button onclick="add()">Click me!</button>
+    <paper-tab-pages>
+      <paper-tab>1</paper-tab>
+      <paper-tab>2</paper-tab>
+      <paper-tab>3</paper-tab>
+      <div page>Page 1</div>
+      <div page>Page 2</div>
+      <div page>Page 3</div>
+    </paper-tab-pages>
+  </body>
+  <script>
+    function add() {
+      var tab = document.createElement('paper-tab');
+      //tab.className ="tab";
+      tab.innerHTML = "4";
+
+      var div = document.createElement('div');
+      div.setAttribute('page', '');
+      div.innerHTML = "Page 4";
+
+      var testcomponent = document.querySelector('paper-tab-pages');
+      var firstChild = Polymer.dom(testcomponent).firstChild;;
+
+      Polymer.dom(testcomponent).insertBefore(tab, firstChild);
+      Polymer.dom(testcomponent).insertBefore(div, firstChild);
+    }
+  </script>
+</html>

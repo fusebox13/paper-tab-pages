@@ -1,0 +1,53 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../paper-tabs/paper-tabs.html">
+<link rel="import" href="../iron-pages/iron-pages.html">
+<!--
+`paper-tab-pages`
+A combo paper-tabs/iron-pages component
+
+Example:
+    <paper-tab-pages>
+      <paper-tab>1</paper-tab>
+      <paper-tab>2</paper-tab>
+      <paper-tab>3</paper-tab>
+      <div page>Page 1</div>
+      <div page>Page 2</div>
+      <div page>Page 3</div>
+    </paper-tab-pages>
+
+@demo demo/index.html
+-->
+
+<dom-module id="paper-tab-pages">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+
+    <paper-tabs id="tabs" selected="{{selected}}">
+      <content select="paper-tab"></content>
+    </paper-tabs>
+
+    <iron-pages id="ip" selected="{{selected}}">
+      <content select="[page]"></content>
+    </iron-pages>
+
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'paper-tab-pages',
+
+      properties: {
+        selected: {
+          type: Number,
+          value: 0,
+        },
+      },
+
+    });
+  </script>
+</dom-module>
